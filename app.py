@@ -1,4 +1,4 @@
-from streamlit_extras.let_it_rain import rain
+from animations import danger_streamlit_animation
 import streamlit as st
 import pickle
 import string
@@ -8,13 +8,6 @@ from nltk.stem.porter import PorterStemmer
 import sklearn
 ps = PorterStemmer()
 
-def example():
-    rain(
-        emoji="❌",
-        font_size=64,
-        falling_speed=1.5,
-        animation_length="10",
-    )
 
 def transform_Text(Text):
     Text = Text.lower()
@@ -40,8 +33,6 @@ def transform_Text(Text):
 
     return " ".join(y)
 
-# nltk.download('punkt')
-# nltk.download('stopwords')
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
@@ -58,9 +49,9 @@ if st.button("Let's Check"):
     vector_input = tfidf.transform([transformed_sms])
     result = model.predict(vector_input)[0]
     if result == 1:
-     st.warning("OH..NO! IT'S A SPAM !! BEAWARE!")
-     example()
+        st.warning("OH..NO! IT'S A SPAM !! BEAWARE!")
+        danger_streamlit_animation.animation()
     else:
-     st.success("RELAX!! IT'S NOT A SPAM !")
-     st.balloons()
+        st.success("RELAX!! IT'S NOT A SPAM !")
+        st.balloons()
 
