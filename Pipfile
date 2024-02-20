@@ -8,6 +8,9 @@ streamlit = "*"
 nltk = "*"
 streamlit-extras = "*"
 scikit-learn = "*"
+fastapi = "*"
+uvicorn = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
