@@ -1,0 +1,14 @@
+.idea
+.vscode
+
+.DS_Store
+
+.env
+.env*
+
+Pipfile
+Pipfile.lock
+
+Dockerfile
+.dockerignore
+docker-compose.yml

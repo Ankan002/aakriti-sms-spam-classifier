@@ -59,4 +59,4 @@ async def check_message_quality(req_body: CheckReqBody, response: Response):
             "error": "Internal Server Error!!"
         }
 
-uvicorn.run(app, port=int(port))
+uvicorn.run(app, host="0.0.0.0", port=int(port))
